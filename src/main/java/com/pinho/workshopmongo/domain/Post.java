@@ -1,90 +1,92 @@
 package com.pinho.workshopmongo.domain;
 
+import com.pinho.workshopmongo.dto.AuthorDTO;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
 @Document
-public class Post implements Serializable{
-	private static final long serialVersionUID = 1L;
-	
-	@Id
-	private String id;
-	private Date date;
-	private String title; 
-	private String body;
-	private User author;
-	
-	public Post() {}
+public class Post implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-	public Post(String id, Date date, String title, String body, User author) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.title = title;
-		this.body = body;
-		this.author = author;
-	}
+    @Id
+    private String id;
+    private Date date;
+    private String title;
+    private String body;
+    private AuthorDTO author;
 
-	public String getId() {
-		return id;
-	}
+    public Post() {
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public Post(String id, Date date, String title, String body, AuthorDTO author) {
+        super();
+        this.id = id;
+        this.date = date;
+        this.title = title;
+        this.body = body;
+        this.author = author;
+    }
 
-	public Date getDate() {
-		return date;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public Date getDate() {
+        return date;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public String getBody() {
-		return body;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setBody(String body) {
-		this.body = body;
-	}
- 
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public User getAuthor() {
-		return author;
-	}
+    public String getBody() {
+        return body;
+    }
 
-	public void setAuthor(User author) {
-		this.author = author;
-	}	
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
+    public void setBody(String body) {
+        this.body = body;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Post other = (Post) obj;
-		return Objects.equals(id, other.id);
-	}
+
+    public AuthorDTO getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorDTO author) {
+        this.author = author;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Post other = (Post) obj;
+        return Objects.equals(id, other.id);
+    }
 
 }
